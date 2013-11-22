@@ -25,11 +25,10 @@ class Admin_Controller extends MY_Controller {
 	
 	public function do_upload() {
 	
-		$config['upload_path'] = '../public_html/img/';
-		$config['allowed_types'] = 'gif|jpg|png';
-		$config['max_size']	= '500';
-		$config['max_width']  = '1024';
-		$config['max_height']  = '768';
+		
+		$config['allowed_types'] = '*';
+		$config['upload_path'] = '../public_html/media/';
+		$config['max_size']	= '0';
 		
 		$this->upload->initialize($config);
 		$this->load->library('upload', $config);
@@ -49,7 +48,7 @@ class Admin_Controller extends MY_Controller {
 	}	
 	
 	public function delete_upload($delete_image, $id) {
-		$path = realpath(dirname(__FILE__).'/../../public_html/img/');
+		$path = realpath(dirname(__FILE__).'/../../public_html/media/');
 		
 		for ($i = 0; $i<count($delete_image); $i++) {
 		  

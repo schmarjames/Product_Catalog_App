@@ -47,10 +47,15 @@ class Dashboard extends Admin_Controller {
 			$product_id = $this->dashboard_m->save($data, $id);
 			$info = $this->data['upload_info']['upload_results']; 
 			$image_query_data = array();
-			$image_data = array('', 'file_name', 'file_path', 'orig_name', 'file_size', 'image_width', 'image_height', 'image_type');
+			$image_data = array('', 'file_name', 'file_path', 'orig_name', 'file_size', 'image_width', 'image_height', 'file_type', 'image_type');
 					
 			for ($j = 0; $j<count($info); $j++) {			
 				foreach($info[$j]['upload_data'] as $key=>$value) {	
+				
+					if(	$key == 'image_width' && $value == '' || $key == 'image_height' && $value == '' ) {
+						$value = 0;
+					}
+					
 					if(array_search($key, $image_data)) {
 						$image_query_data[$key] = $value;
 					}

@@ -38,6 +38,10 @@ class Migration_Create_product_images extends CI_Migration {
 				'type' => 'INT',
 				'constraint' => 4,
 			),
+			'file_type' => array(
+				'type' => 'VARCHAR',
+				'constraint' => 20,
+			),
 			'image_type' => array(
 				'type' => 'VARCHAR',
 				'constraint' => 5,

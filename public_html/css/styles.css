@@ -78,54 +78,135 @@
 	width: 800px;
 	min-height: 500px;
 	margin: 0 auto;
-	border: 1px solid #333;
-	border-radius: 5px;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
 }
 
 #image_gallery_wrapper {
 	width: 350px;
-	height: 400px;
+	height: 518px;
+	margin: 5px 0 0 2px;
 	float: left;
 	position: relative;
 }
 
-#main_image {
-	width: 340px;
-	height: 350px;
+#main_media_section {
+	width: 100%;
+	height: 250px;
+	float: left;
 	margin: 0 auto;
+	padding: 4px;
+	overflow: hidden;
+	position: relative;
 }
 
-#main_image img {
+#main_media_section #video_section {
 	width: 100%;
+	height: 100%;
+	position: absolute;
+	display: none;
+	z-index: -100;
+}
+
+#video_section > div {
+	position: absolute;
+}
+
+#main_media_section img {
+	position: absolute;
+	width: 100%;
+	z-index: 100;
 }
 
 #image_gallery_wrapper ul {
 	margin: 3px 0;
 	padding: 0;
 	width: 350px;
-	height: 60px;
-	position: absolute;
-	bottom: 3px;
-	left: 0;
+	height: 64px;
+	float: left;
 }
 
-#image_gallery_wrapper ul li {
-	width: 80px;
-	height: 50px;
+#image_gallery_wrapper ul .thumbnail {
+	width: 62px;
 	float: left;
-	margin: 0 2px;
-	border: 1px solid #333;
-	list-style: none;
+	margin: 0 4px;
 	overflow: hidden;
 }
 
-#image_gallery_wrapper ul li img {
+#image_gallery_wrapper ul .thumbnail img {
 	width: 100%;
 }
 
-#product_content_wrapper {
-	width: 400px;
+
+#image_gallery_wrapper .thumbnail .video_image_placeholder {
+	width: 51px;
+	height: 39px;
+	padding: 10px 0;
+	display: block;
+	background: #ccc;
+	color: #ffffff;
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 12px;
+}
+
+#image_gallery_wrapper .description {
+	width: 100%;
+	margin: 15px 0;
 	float: left;
+	font-size: 12px;
+}
+
+#product_content_wrapper {
+	width: 430px;
+	margin: 5px 0 10px 10px;
+	float: left;
+}
+
+#product_content_wrapper h2 {
+	width: 100%;
+	margin: 0 0 10px 0;
+}
+
+#price_hightlight_wrapper {
+	width: 100%;
+	margin: 0 0 5px;
+}
+
+#price_hightlight_wrapper .price {
+	width: 105px;
+	margin: 0 5px 0 0;
+	padding: 5% 0;
+	font-size: 20px;
+	font-weight: bold;
+	float: left;
+	text-align: center;
+}
+
+#price_hightlight_wrapper .highlight {
+	width: 315px;
+	margin: 0;
+	padding: 0;
+	float: left;
+}
+
+#price_hightlight_wrapper .highlight li {
+	margin: 0 0 6px;
+	padding: 5px;
+	list-style: none;
+}
+
+.product_info .warranty {
+	width: 98%;
+	padding: 3px;
+	margin: 8px auto;
+	clear: both;
+}
+
+#accordion {
+	width: 425px;
+	float: left;
+}
+
+#accordion ul li {
+	list-style: none;
+	font-size: 12px !important;
 }

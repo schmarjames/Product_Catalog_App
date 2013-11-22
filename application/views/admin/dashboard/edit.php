@@ -3,7 +3,7 @@
 </div>
 
 <div class="modal-body">
-	<?php echo validation_errors('admin/dashboard'); ?>
+	<?php echo validation_errors(); ?>
 	<?php if(!empty($upload_info['upload_results']['error']))echo $upload_info['upload_results']['error']; ?>
 	<?php echo form_open_multipart();?>
 		
@@ -133,7 +133,7 @@
 				<?php for($i=0; $i<count($product_file_name); $i++): ?>
 					<span class="check_wrap">
 					<input type="checkbox" class="image_check" name="image_check" value="<?php echo $product_file_name[$i]->file_name; ?>">
-					<img src="<?php echo site_url('../img/'. $product_file_name[$i]->file_name.''); ?>" class="file_image" alt="" />
+					<img src="<?php echo site_url('../media/'. $product_file_name[$i]->file_name.''); ?>" class="file_image" alt="" />
 					</span>	
 				<?php endfor; ?>
 				</div>
