@@ -10,6 +10,7 @@ class Frontend_Controller extends MY_Controller {
 		$this->load->model('user_m');
 		$this->load->model('dashboard_m');
 		$this->load->model('dashboard_image_m');
+		$this->load->model('upload_m');
 	}
 		
 }

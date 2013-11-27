@@ -3,9 +3,12 @@
 </div>
 
 <div class="modal-body">
-	<?php echo validation_errors(); ?>
-	<?php if(!empty($upload_info['upload_results']['error']))echo $upload_info['upload_results']['error']; ?>
-	<?php echo form_open_multipart();?>
+	<?php 	
+		echo validation_errors();
+		if(!empty($upload_info['upload_results']['error']))echo $upload_info['upload_results']['error'];
+		$attribute = array('id' => 'edit_form');
+		echo form_open_multipart('', $attribute);
+	?>
 		
 		<div class="form-group">
 			<label for="Product Name">Product Name</label>
@@ -133,8 +136,15 @@
 				<?php for($i=0; $i<count($product_file_name); $i++): ?>
 					<span class="check_wrap">
 					<input type="checkbox" class="image_check" name="image_check" value="<?php echo $product_file_name[$i]->file_name; ?>">
-					<img src="<?php echo site_url('../media/'. $product_file_name[$i]->file_name.''); ?>" class="file_image" alt="" />
-					</span>	
+					<?php 
+						$file_part = trim(pathinfo($product_file_name[$i]->file_name, PATHINFO_EXTENSION), '');
+						if($file_part == 'jpg' || $file_part == 'png' || $file_part == 'gif'):
+					?>
+						<img src="<?php echo site_url('../media/'. $product_file_name[$i]->file_name.''); ?>" class="file_image" alt="" />
+					<?php else:?>
+						<span class="video_placeholder"><?php echo trim(pathinfo($product_file_name[$i]->file_name, PATHINFO_FILENAME), ''); ?><br>VIDEO</span>
+					<?php endif;?>
+						</span>	
 				<?php endfor; ?>
 				</div>
 			<?php endif; ?>

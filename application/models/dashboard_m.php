@@ -1,5 +1,5 @@
 <?php
-class Dashboard_M extends MY_Model {
+class Dashboard_m extends MY_Model {
 
 	protected $_table_name = 'products_info';
 	protected $_order_by = 'name';
@@ -17,7 +17,7 @@ class Dashboard_M extends MY_Model {
 		'description' => array(
 			'field' => 'description', 
 			'label' => 'Description', 
-			'rules' => 'trim|required|max_length[300]'
+			'rules' => 'trim|required|max_length[500]'
 		),
 		'highlight_message1' => array(
 			'field' => 'highlight_message1', 
@@ -37,27 +37,27 @@ class Dashboard_M extends MY_Model {
 		'bullet_point1_1' => array(
 			'field' => 'bullet_point1_1', 
 			'label' => 'Bullet Point Message #1', 
-			'rules' => 'trim|max_length[80]'
+			'rules' => 'trim|max_length[90]'
 		),
 		'bullet_point1_2' => array(
 			'field' => 'bullet_point1_2', 
 			'label' => 'Bullet Point Message #2', 
-			'rules' => 'trim|max_length[80]'
+			'rules' => 'trim|max_length[90]'
 		),
 		'bullet_point1_3' => array(
 			'field' => 'bullet_point1_3', 
 			'label' => 'Bullet Point Message #3', 
-			'rules' => 'trim|max_length[80]'
+			'rules' => 'trim|max_length[90]'
 		),
 		'bullet_point1_4' => array(
 			'field' => 'bullet_point1_4', 
 			'label' => 'Bullet Point Message #4', 
-			'rules' => 'trim|max_length[80]'
+			'rules' => 'trim|max_length[90]'
 		),
 		'bullet_point1_5' => array(
 			'field' => 'bullet_point1_5', 
 			'label' => 'Bullet Point Message #5', 
-			'rules' => 'trim|max_length[80]'
+			'rules' => 'trim|max_length[90]'
 		),
 		'bullet_list_title2' => array(
 			'field' => 'bullet_list_title2', 
@@ -67,32 +67,32 @@ class Dashboard_M extends MY_Model {
 		'bullet_point2_1' => array(
 			'field' => 'bullet_point2_1', 
 			'label' => 'Bullet Point Message #1', 
-			'rules' => 'trim|max_length[80]'
+			'rules' => 'trim|max_length[90]'
 		),
 		'bullet_point2_2' => array(
 			'field' => 'bullet_point2_2', 
 			'label' => 'Bullet Point Message #2', 
-			'rules' => 'trim|max_length[80]'
+			'rules' => 'trim|max_length[90]'
 		),
 		'bullet_point2_3' => array(
 			'field' => 'bullet_point2_3', 
 			'label' => 'Bullet Point Message #3', 
-			'rules' => 'trim|max_length[80]'
+			'rules' => 'trim|max_length[90]'
 		),
 		'bullet_point2_4' => array(
 			'field' => 'bullet_point2_4', 
 			'label' => 'Bullet Point Message #4', 
-			'rules' => 'trim|max_length[80]'
+			'rules' => 'trim|max_length[90]'
 		),
 		'bullet_point2_5' => array(
 			'field' => 'bullet_point2_5', 
 			'label' => 'Bullet Point Message #5', 
-			'rules' => 'trim|max_length[80]'
+			'rules' => 'trim|max_length[90]'
 		),
 		'warranty_message' => array(
 			'field' => 'warranty_message', 
 			'label' => 'Warranty Message', 
-			'rules' => 'trim|max_length[80]'
+			'rules' => 'trim|max_length[150]'
 		),
 	);
 	

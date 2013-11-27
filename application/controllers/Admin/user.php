@@ -21,7 +21,6 @@
  			$this->data['user'] = $this->user_m->get_new($id);
  		}
  		
- 		
  		$rules = $this->user_m->rules_admin;
  		$id || $rules['password'] .= '|required'; 
  		$this->form_validation->set_rules($rules);
@@ -42,7 +41,6 @@
  	}
  	
  	public function login() {
- 		
  		$dashboard = 'admin/dashboard';
  		$this->user_m->loggedin() == FALSE || redirect($dashboard);
  		

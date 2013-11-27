@@ -10,6 +10,7 @@ class Admin_Controller extends MY_Controller {
 		$this->load->model('user_m');
 		$this->load->model('dashboard_m');
 		$this->load->model('dashboard_image_m');
+		$this->load->model('upload_m');
 		
 		// Login check
 		$exception_uris = array(
@@ -23,13 +24,10 @@ class Admin_Controller extends MY_Controller {
 		}
 	}
 	
-	public function do_upload() {
-	
-		
+	public function do_upload($path) {	
 		$config['allowed_types'] = '*';
-		$config['upload_path'] = '../public_html/media/';
+		$config['upload_path'] = $path;
 		$config['max_size']	= '0';
-		
 		$this->upload->initialize($config);
 		$this->load->library('upload', $config);
 		$this->data['upload_results'] = array();
@@ -47,9 +45,8 @@ class Admin_Controller extends MY_Controller {
 		return $this->data;	
 	}	
 	
-	public function delete_upload($delete_image, $id) {
-		$path = realpath(dirname(__FILE__).'/../../public_html/media/');
-		
+	public function delete_upload($delete_image, $id, $file_path) {
+		$path = realpath(dirname(__FILE__).$file_path);
 		for ($i = 0; $i<count($delete_image); $i++) {
 		  
 			if(is_readable($path.'/'.$delete_image)) {
@@ -58,7 +55,6 @@ class Admin_Controller extends MY_Controller {
 			$delete_file_data = array("product_id" => $id, "file_name" => $delete_image);
 			$this->dashboard_image_m->delete_by($delete_file_data);
 		}
-		
 		return true;
 	}
 }

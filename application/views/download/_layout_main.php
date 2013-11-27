@@ -10,17 +10,8 @@
 		        <span class="icon-bar"></span>
 		        <span class="icon-bar"></span>
 	    	</button>
-	   		<a class="navbar-brand" href="<?php echo site_url('admin/dashboard'); ?>"><?php echo $meta_title; ?></a>
+	   		<a class="navbar-brand" href="<?php echo site_url('download/dashboard'); ?>"><?php echo $meta_title; ?></a>
 	 	</div>
-	
-	 	<!-- Collect the nav links, forms, and other content for toggling -->
-	 	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		  	<ul class="nav navbar-nav">
-		    	<li class="active"><a href="<?php echo site_url('admin/dashboard'); ?>">Dashboard</a></li>
-		    	<li><?php echo anchor('admin/upload', 'uploads'); ?></li>
-		    	<li><?php echo anchor('admin/user', 'users'); ?></li>
-		    </ul>
-		</div><!-- /.navbar-collapse -->
 	</nav>
   
    	<div class="container">
@@ -33,7 +24,7 @@
 	   		<div class="pull-right">
 	   			<section>
 	   				<?php echo mailto('sales@focusedlightengraving.com', '<i class="glyphicon glyphicon-envelope"></i> sales@focusedlightengraving.com'); ?><br>
-	   				<?php echo anchor('admin/user/logout', '<i class="glyphicon glyphicon-off"></i> logout'); ?>
+	   				<?php echo anchor('download/dashboard/logout', '<i class="glyphicon glyphicon-off"></i> logout'); ?>
 	   			</section>
 	   		</div>
 	   	</div>

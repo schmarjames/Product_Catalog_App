@@ -32,8 +32,8 @@ class Dashboard extends Admin_Controller {
 		else {
 			$this->data['product'] = $this->dashboard_m->get_new($id);
 		}
-		
-		$this->data['upload_info'] = $this->do_upload();
+		$image_upload_path = '../public_html/media/';
+		$this->data['upload_info'] = $this->do_upload($image_upload_path);
 		$this->data['image_query'] = array();
 		$rules = $this->dashboard_m->product_rules;
 		$this->form_validation->set_rules($rules);
@@ -81,11 +81,12 @@ class Dashboard extends Admin_Controller {
 	
 	public function delete($id) {
 		$this->dashboard_m->delete($id);
+		$image_upload_path = '/../../public_html/media/';
 		$image_rows = $this->dashboard_image_m->get_by('product_id ='.$id);
 		for ($n=0; $n<count($image_rows); $n++) {
 				$delete_file_data = array("product_id" => $id, "file_name" => $image_rows[$n]->file_name);
 				$this->dashboard_image_m->delete_by($delete_file_data);
-				$this->delete_upload($image_rows[$n]->file_name, $id);
+				$this->delete_upload($image_rows[$n]->file_name, $id, $image_upload_path);
 		}
 		redirect('admin/dashboard/index');
 	}

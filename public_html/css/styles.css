@@ -1,3 +1,6 @@
+/* Google Font */
+@import url(http://fonts.googleapis.com/css?family=Julius+Sans+One);
+
 /***************** Admin Styles *********************/
 #bullet_question {
 	float: left;
@@ -72,12 +75,102 @@
 	width: 200px;
 }
 
+#upload_wrapper .check_wrap .video_placeholder {
+	width: 100px;
+	height: 75px;
+	float: left;
+	padding: 20px 0;
+	display: block;
+	background: #ccc;
+	color: #ffffff;
+	text-align: center;
+	text-transform: uppercase;
+	line-height: 20px;
+	font-size: 12px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
 /***************** FrentEnd Styles *********************/
+#header {
+	width: 100%;
+	height: 40px;
+	background: #000;
+	margin: 0 0 5px 0;
+	padding: 5px 20px;
+	box-shadow: 0px 3px 6px 0px #666;
+}
+
+#header #nav {
+	width: 200px;
+	margin: 5px 0;
+	float: right;
+}
+
+#header h2 {
+	margin: 0;
+	float: left;
+	font-family: 'Julius Sans One', sans-serif;
+	color: #ffffff;
+}
+
+.product_entry {
+	margin: 25px auto 0 auto;
+}
 
 .product_info {
 	width: 800px;
-	min-height: 500px;
-	margin: 0 auto;
+	height: 482px;
+	float: left;
+	margin: 0 auto 10px auto;
+}
+
+#product_header {
+	width: 800px;
+	height: 30px;
+	padding: 0 10px;
+	float: left;
+	clear: both;
+	color: #ffffff;
+	border-radius: 4px 4px 0 0;
+	background: #000;
+}
+
+#product_header .title {
+	float: left;
+}
+
+#product_header .title h2 {
+	margin: 5px 0;
+	font-family: 'Julius Sans One', sans-serif;
+	font-size: 18px;
+}
+
+#product_header .price {
+	width: 105px;
+	margin: 3px 5px 0 0;
+	font-family: 'Julius Sans One', sans-serif;
+	font-size: 18px;
+	float: right;
+	text-align: center;
+}
+
+#product_footer {
+	width: 800px;
+	height: 30px;
+	padding: 0 10px;
+	clear: both;
+	color: #ffffff;
+	border-radius: 0 0 4px 4px;
+	background: #000;
+	box-shadow: 0px 1px 7px 0px #000;
+	text-align: center;
+}
+
+#product_footer address p {
+	margin: 10px 10px 0 10px;
+	display: inline;
+	font-size: 12px;
 }
 
 #image_gallery_wrapper {
@@ -150,7 +243,7 @@
 
 #image_gallery_wrapper .description {
 	width: 100%;
-	margin: 15px 0;
+	margin: 5px 0 5px 5px;
 	float: left;
 	font-size: 12px;
 }
@@ -166,47 +259,143 @@
 	margin: 0 0 10px 0;
 }
 
-#price_hightlight_wrapper {
+#hightlight_wrapper {
 	width: 100%;
 	margin: 0 0 5px;
 }
 
-#price_hightlight_wrapper .price {
-	width: 105px;
-	margin: 0 5px 0 0;
-	padding: 5% 0;
-	font-size: 20px;
-	font-weight: bold;
-	float: left;
-	text-align: center;
-}
-
-#price_hightlight_wrapper .highlight {
-	width: 315px;
+#hightlight_wrapper .highlight {
+	width: 100%;
 	margin: 0;
 	padding: 0;
 	float: left;
 }
 
-#price_hightlight_wrapper .highlight li {
+#hightlight_wrapper .highlight li {
 	margin: 0 0 6px;
 	padding: 5px;
 	list-style: none;
 }
 
-.product_info .warranty {
+.warranty {
 	width: 98%;
 	padding: 3px;
 	margin: 8px auto;
 	clear: both;
 }
 
-#accordion {
-	width: 425px;
-	float: left;
+.accordion,
+.accordion ul,
+.accordion li,
+.accordion a {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  list-style: none;
+  font-weight: normal;
+  text-decoration: none;
+  line-height: 1;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1em;
+  position: relative;
+}
+.accordion {
+  width: 100%;
+  float: left;
+  margin: 10px 0;
+  border-bottom: 4px solid #656659;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+.accordion a {
+  line-height: 1.3;
 }
 
-#accordion ul li {
-	list-style: none;
-	font-size: 12px !important;
+.accordion > ul > li {
+  background: #abe9fc; /* Old browsers */
+  background: -moz-linear-gradient(top,  #abe9fc 0%, #34b7db 73%, #34b7db 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#abe9fc), color-stop(73%,#34b7db), color-stop(100%,#34b7db)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #abe9fc 0%,#34b7db 73%,#34b7db 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #abe9fc 0%,#34b7db 73%,#34b7db 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #abe9fc 0%,#34b7db 73%,#34b7db 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  #abe9fc 0%,#34b7db 73%,#34b7db 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#abe9fc', endColorstr='#34b7db',GradientType=0 ); /* IE6-9 */
+  
+}
+.accordion > ul > li:hover {
+  background: #abe9fc; /* Old browsers */
+  background: -moz-linear-gradient(top,  #abe9fc 0%, #339fd6 73%, #0089e5 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#abe9fc), color-stop(73%,#339fd6), color-stop(100%,#0089e5)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #abe9fc 0%,#339fd6 73%,#0089e5 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #abe9fc 0%,#339fd6 73%,#0089e5 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #abe9fc 0%,#339fd6 73%,#0089e5 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  #abe9fc 0%,#339fd6 73%,#0089e5 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#abe9fc', endColorstr='#0089e5',GradientType=0 ); /* IE6-9 */
+  
+}
+.accordion > ul > li > a {
+  font-size: .9em;
+  display: block;
+  background: url(../img/pattern.png) top left repeat;
+  color: #ffffff;
+  border: 1px solid #5A7CAF;
+  border-top: none;
+  text-shadow: 0 -1px 1px #5A7CAF;
+}
+.accordion > ul > li > a > span {
+  display: block;
+  padding: 12px 10px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+.accordion > ul > li > a:hover {
+  text-decoration: none;
+}
+.accordion > ul > li.active {
+  border-bottom: none;
+}
+.accordion > ul > li > a span {
+  background: url(../img/icon_plus.png) 96% center no-repeat;
+}
+.accordion > ul > li.active > a span {
+  background: url(../img/icon_minus.png) 96% center no-repeat;
+}
+
+.accordion ul ul {
+  display: none;
+  background: #fff;
+  border-right: 1px solid #a2a194;
+  border-left: 1px solid #a2a194;
+}
+.accordion ul ul li {
+  height: 25px;
+  padding: 5px 0 5px 5px;
+  border-bottom: 1px solid #d4d4d4;
+  border-top: none;
+  background: #f7f7f7;
+  background: -moz-linear-gradient(#f7f7f7 0%, #ececec 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f7f7f7), color-stop(100%, #ececec));
+  background: -webkit-linear-gradient(#f7f7f7 0%, #ececec 100%);
+  background: linear-gradient(#f7f7f7 0%, #ececec 100%);
+}
+.accordion ul ul li:last-child {
+  border-bottom: none;
+}
+.accordion ul ul a {
+  padding: 10px 10px 10px 25px;
+  display: block;
+  color: #676767;
+  font-size: .8em;
+  font-weight: normal;
+}
+.accordion ul ul a:before {
+  content: '\00BB';
+  position: absolute;
+  left: 10px;
+  color: #e94f31;
+}
+.accordion ul ul a:hover {
+  color: #e94f31;
 }

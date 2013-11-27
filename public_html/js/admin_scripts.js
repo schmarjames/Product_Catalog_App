@@ -21,6 +21,50 @@ jQuery(document).ready(function(){
 	
 	// debugging: (uri.indexOf('admin/dashboard/edit') > -1) ? console.log("we are on the page") : console.log("this is the wrong page");
 	
+	// Dynamically creates and appends character counter for the form inputs
+	jQuery("#edit_form *").filter(":input").each(function(){
+		var name_attr = jQuery(this).attr('name');
+		
+		if (name_attr != "image_check") {
+			jQuery(this).attr('id', name_attr);
+			jQuery(this).after('<div id="'+name_attr+'_char" class="badge"></div>');
+		}
+		
+		var char_div = jQuery("#"+name_attr+"_char");
+		
+		char_div.css({
+			"margin" 	: "5px",
+			"font-size"	: "14px"
+		});
+	});
+	
+	// Character limit for each input within the edit form
+	var edit_fields = {
+			"name"					: 70,
+			"description"			: 500,
+			"highlight_message1"	: 75,
+			"highlight_message2"	: 75,
+			"bullet_list_title1"	: 100,
+			"bullet_point1_1"		: 90,
+			"bullet_point1_2"		: 90,
+			"bullet_point1_3"		: 90,
+			"bullet_point1_4"		: 90,
+			"bullet_point1_5"		: 90,
+			"bullet_list_title2"	: 100,
+			"bullet_point2_1"		: 90,
+			"bullet_point2_2"		: 90,
+			"bullet_point2_3"		: 90,
+			"bullet_point2_4"		: 90,
+			"bullet_point2_5"		: 90,
+			"warranty_message"		: 150
+	};
+	
+	// Call the limiter plugin on each form element
+	jQuery.each(edit_fields, function(field, char_amount) {
+		var elem = jQuery("#"+field+"_char");
+		jQuery("#"+field).limiter(char_amount,elem);
+	});
+	
 	jQuery("#bullet_set1 .bullet_title, #bullet_set2 .bullet_title").blur(function() {
 		var group_num = jQuery(this).parent().attr('id');
 

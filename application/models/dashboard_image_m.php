@@ -1,5 +1,5 @@
 <?php
-class Dashboard_Image_M extends MY_Model {
+class Dashboard_image_m extends MY_Model {
 
 	protected $_table_name = 'product_images';
 	protected $_order_by = 'product_id';

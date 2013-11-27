@@ -84,16 +84,14 @@
 		return media_list;
 	});
 	
-	var template = Handlebars.compile( $("#template").html() );
+	var template = Handlebars.compile( jQuery("#template").html() );
 	jQuery(".product_entry").append( template(product_data) );
 	
 	jQuery('audio,video').mediaelementplayer({
 		success: function(player, node) {
-			$('#' + node.id + '-mode').html('mode: ' + player.pluginType);
+			jQuery('#' + node.id + '-mode').html('mode: ' + player.pluginType);
 		}
 	});
-	
-	
 	
 	// Check first thumbnail and load media within main media section based on thumbnail type
 	jQuery(".product_info").each(function(i){
@@ -130,5 +128,56 @@
 			});
 		}
 	});
+	
+	// Accordion functionality 
+	jQuery(".accordion").each(function(i) {
+		jQuery(this).attr('id', 'cssmenu'+i);
+		
+		jQuery("#cssmenu"+i+" > ul > li > a").click(function() {
+			var checkElement = jQuery(this).next();
+			  
+			jQuery("#cssmenu"+i+" li").removeClass('active');
+			jQuery(this).closest('li').addClass('active');	
+			  
+			  
+			if((checkElement.is('ul')) && (checkElement.is(':visible'))) {
+		    	jQuery(this).closest('li').removeClass('active');
+		    	checkElement.slideUp('normal');
+		  	}
+			  
+		  	if((checkElement.is('ul')) && (!checkElement.is(':visible'))) {
+		    	jQuery("#cssmenu"+i+" ul ul:visible").slideUp('normal');
+		    	checkElement.slideDown('normal');
+		  	}
+			  
+		  	jQuery("#cssmenu"+i+" ul li ul li").each(function() {
+		  		if(jQuery(this).text() == '') {
+		  			jQuery(this).css("display", "none");
+		  		}
+		  	});
+			  
+		  	if (checkElement.is('ul')) {
+		    	return false;
+		  	} else {
+		    	return true;	
+		  	}		
+		});
+	});
+	
+	jQuery('.product_entry').bjqs({
+		  height      : 555,
+		  width       : 800,
+		  automatic   : false,
+		  nexttext : '',
+		  prevtext : '',
+		  responsive  : true
+		});
+		
+	jQuery(".bjqs-prev a").append('<span class="glyphicon glyphicon-chevron-left"></span>');
+	jQuery(".bjqs-next a").append('<span class="glyphicon glyphicon-chevron-right"></span>');
+	
+	jQuery(".bjqs-markers li:first").addClass("first");
+	jQuery(".bjqs-markers li:last").addClass("last");
+	
 
 })();
