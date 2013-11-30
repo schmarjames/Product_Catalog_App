@@ -1,6 +1,27 @@
 <?php
+
+/**
+* Download_Controller contains general functionality for the Download section.
+*
+* The Download_Controller contains general functionality for the
+* Download section such as loading the necessary helpers, libraries, and
+* and models. It also contains the download functionality
+* for files.
+*
+* @package  Product Catalog
+* @author   Schmar James
+* @access   public
+*/
+
 class Download_Controller extends MY_Controller {
 	
+	
+	/**
+	 * Constructor
+	 *
+	 * @access	public
+	 */
+	 
 	function __construct() {
 		parent::__construct();
 		$this->data['meta_title'] = 'Laser Marking Systems';
@@ -24,6 +45,19 @@ class Download_Controller extends MY_Controller {
 			}
 		}
 	}
+	
+	
+	/**
+	 * Downloads files
+	 *
+	 * Checks to see if chosen file has a path that exist.
+	 * If so the file will be downloaded to the users local
+	 * machine.
+	 * 
+	 * @param string $path
+	 * @param string $name
+	 * @return bool
+	 */
 	
 	public function do_download($path, $name) {
 		// Download functionality

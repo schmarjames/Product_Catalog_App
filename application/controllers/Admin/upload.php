@@ -1,4 +1,21 @@
 <?php 
+
+/**
+* Upload is a class that contains functionality for the Upload page.
+*
+* Upload is a class that contains all of the code for the user
+* page within the Download section. It passes all of the queries 
+* that deal with the upload_m table. It also is responsible for 
+* the validation of any forms within the Upload section.
+*
+* Example usage:
+* echo form_input('name', set_value('name', $upload->name), 'class="form-control"');
+*
+* @package  Product Catalog
+* @author   Schmar James
+* @access   public
+*/
+
 class Upload extends Admin_Controller {
 	
 	public function __construct() {
@@ -6,6 +23,15 @@ class Upload extends Admin_Controller {
 	}
 	
 	
+	/**
+	 * Pass data to upload view
+	 *
+	 * Selects all rows from upload_m table and passes 
+	 * data into data variable, which is included within the
+	 * upload view
+	 * 
+	 */
+	 
 	public function index() {
 		$this->data['uploads'] = $this->upload_m->get();
 		$this->data['subview'] = 'admin/upload/index';
@@ -15,6 +41,14 @@ class Upload extends Admin_Controller {
 	public function modal() {
 		$this->load->view('admin/_layout_modal', $this->data);
 	}
+	
+	
+	/**
+	 * Validates and submits new_upload form
+	 *
+	 * Validates form data and runs an insert query. 
+	 * 
+	 */
 	
 	public function new_upload() {
 		
@@ -39,6 +73,17 @@ class Upload extends Admin_Controller {
 		$this->data['subview'] = 'admin/upload/new_upload';
 		$this->load->view('admin/_layout_main', $this->data);
 	}
+	
+	
+	/**
+	 * Deletes data from selected upload
+	 *
+	 * Deletes row from user_m table that has a matching id attached to 
+	 * selected link within href tag
+	 * 
+	 * @param int $id
+	 * @return int
+	 */
 	
 	public function delete($id) {
 		$upload_file = $this->upload_m->get($id);

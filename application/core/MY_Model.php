@@ -1,4 +1,17 @@
 <?php
+
+/**
+* MY_Model contains general database functionality.
+*
+* The MY_Model contains general functionality for the
+* database such as inserting, updating, selecting, and
+* deleting data.
+*
+* @package  Product Catalog
+* @author   Schmar James
+* @access   public
+*/
+
 class MY_Model extends CI_Model {
 
 	protected $_table_name = '';
@@ -8,10 +21,29 @@ class MY_Model extends CI_Model {
 	public $rules = array();
 	protected $_timestamps = FALSE;
 
+
+	/**
+	 * Constructor
+	 *
+	 * @access	public
+	 */
+	 
 	function __construct() {
 		parent::__construct();
 	}
 	
+	
+	/**
+	 * Provides associative array of form data
+	 *
+	 * Takes array of form data and transforms
+	 * it into an associative array for the form
+	 * validation library.
+	 * 
+	 * @param array $fields
+	 * @return array
+	 */
+	 
 	public function array_from_post($fields) {
 		$data = array();
 		foreach($fields as $field) {
@@ -19,6 +51,17 @@ class MY_Model extends CI_Model {
 		}
 		return $data;
 	}
+	
+	
+	/**
+	 * Gets data from selected table
+	 *
+	 * Get a row or all rows from selected table.
+	 * 
+	 * @param int $id
+	 * @param bool $single
+	 * @return array
+	 */
 	
 	public function get($id = NULL, $single = FALSE){
 		
@@ -41,6 +84,18 @@ class MY_Model extends CI_Model {
 		
 		return $this->db->get($this->_table_name)->$method();
 	}
+	
+	
+	/**
+	 * Selects data by where clause
+	 *
+	 * Selects data from specified table based
+	 * on where clause.
+	 * 
+	 * @param string $where
+	 * @param bool $single
+	 * @return int
+	 */
 	
 	public function get_by ($where, $single = FALSE) {
 		$this->db->where($where);
@@ -74,6 +129,16 @@ class MY_Model extends CI_Model {
 		return $id;
 	}
 	
+	
+	/**
+	 * Deletes data based on where clause
+	 *
+	 * Deletes data from a specified table based
+	 * on where clause
+	 * 
+	 * @param array $delete_where
+	 */
+	 
 	public function delete_by($delete_where=array()) {
 	
 		foreach ($delete_where as $key => $value) {
@@ -82,6 +147,17 @@ class MY_Model extends CI_Model {
 		$this->db->delete($this->_table_name);
 	}
 	
+	
+	/**
+	 * Deletes data from selected table.
+	 *
+	 * Deletes a row from a specified table based
+	 * on matching id.
+	 * 
+	 * @param int $id
+	 * @return bool
+	 */
+	 
 	public function delete($id) {
 		$filter = $this->_primary_filter;
 		$id = $filter($id);

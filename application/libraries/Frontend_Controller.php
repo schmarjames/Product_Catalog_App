@@ -1,6 +1,26 @@
 <?php
+
+/**
+* Frontend_Controller contains general functionality for the Frontend section.
+*
+* The Frontend_Controller contains general functionality for the
+* frontend section such as loading the necessary helpers, libraries, and
+* and models.
+*
+* @package  Product Catalog
+* @author   Schmar James
+* @access   public
+*/
+
 class Frontend_Controller extends MY_Controller {
 	
+	
+	/**
+	 * Constructor
+	 *
+	 * @access	public
+	 */
+	 
 	function __construct() {
 		parent::__construct();
 		$this->data['meta_title'] = 'Laser Marking Systems';

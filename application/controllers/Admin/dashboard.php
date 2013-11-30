@@ -1,10 +1,40 @@
 <?php 
+
+/**
+* Dashboard is a class that contains functionality for the dashboard page.
+*
+* Dashboard is a class that contains all of the code for the dashboard
+* page within the Admin section. It passes all of the queries 
+* that deal with the dashboard_m and dashboard_image_m table. It is also 
+* responsible for the validation of any forms within the dashboard section.
+*
+* @package  Product Catalog
+* @author   Schmar James
+* @access   public
+*/
+
 class Dashboard extends Admin_Controller {
 	
+	
+	/**
+	 * Constructor
+	 *
+	 * @access	public
+	 */
+	 
 	public function __construct() {
 		parent::__construct();
 	}
 	
+	
+	/**
+	 * Pass data to dashboard view
+	 *
+	 * Selects all rows from dashboard_m table and passes 
+	 * data into data variable, which is included within the
+	 * dashboard view.
+	 * 
+	 */
 	
 	public function index() {
 		$this->data['products'] = $this->dashboard_m->get();
@@ -15,6 +45,17 @@ class Dashboard extends Admin_Controller {
 	public function modal() {
 		$this->load->view('admin/_layout_modal', $this->data);
 	}
+	
+	
+	/**
+	 * Validates and submits edit form
+	 *
+	 * Validates form data and runs an update or insert query based on
+	 * existents of an id within the url. If id exist it is an update, 
+	 * however if it doesn't then it is an insert for a new row.
+	 * 
+	 * @param int $id
+	 */
 	
 	public function edit($id = NULL) {
 		
@@ -78,6 +119,17 @@ class Dashboard extends Admin_Controller {
 		$this->data['subview'] = 'admin/dashboard/edit';
 		$this->load->view('admin/_layout_main', $this->data);
 	}
+	
+	
+	/**
+	 * Deletes data from selected product
+	 *
+	 * Deletes row from dashboard_m table that has a matching id attached to 
+	 * selected link within href tag.
+	 * 
+	 * @param int $id
+	 * @return int
+	 */
 	
 	public function delete($id) {
 		$this->dashboard_m->delete($id);
